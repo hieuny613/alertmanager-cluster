@@ -60,6 +60,7 @@ alertmanager-cluster/
 git clone https://github.com/hieuny613/alertmanager-cluster.git
 cd alertmanager-cluster
 ```
+
 - **Cập nhật tệp ``inventory``**
 Chỉnh sửa tệp ``inventory`` và thêm thông tin các node trong cluster:
 ```
@@ -80,6 +81,18 @@ Thêm các biến vào ``vault.yml``:
 ```
 ansible_password: your_password
 ansible_become_password: your_sudo_password
+```
+- **Chỉnh sửa file ``alertmanager.yml.j2``**
+```
+global:
+  resolve_timeout: 5m
+
+route:
+  receiver: 'null'
+
+receivers:
+  - name: 'null'
+  
 ```
 - **Chạy playbook**
 Thực thi playbook với lệnh:
