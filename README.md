@@ -88,7 +88,7 @@ ansible-playbook -i inventory playbook.yml --ask-become-pass
 ```
 Hoặc nếu sử dụng Ansible Vault:
 ```
-ansible-playbook -i inventory main.yml --ask-become-pass --ask-vault-pass
+ansible-playbook -i inventory playbook.yml --ask-vault-pass
 ```
 <a name="chi-tiet-cac-tac-vu"></a>
 
