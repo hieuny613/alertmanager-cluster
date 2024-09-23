@@ -1,0 +1,17 @@
+[Unit]
+Description=Alertmanager Service
+After=network.target
+
+[Service]
+User={{ alertmanager_user }}
+Group={{ alertmanager_group }}
+Type=simple
+ExecStart=/usr/local/bin/alertmanager \
+  --config.file={{ alertmanager_home }}/alertmanager.yml \
+  --storage.path={{ alertmanager_data }} \
+  --web.listen-address=0.0.0.0:{{ alertmanager_port }} \
+  --cluster.listen-address=0.0.0.0:{{ alertmanager_cluster_port }} \
+  {% for peer in alertmanager_peers %}--cluster.peer={{ peer }}:{{ alertmanager_cluster_port }} {% endfor %}
+  --log.level=info
+[Install]
+WantedBy=multi-user.target

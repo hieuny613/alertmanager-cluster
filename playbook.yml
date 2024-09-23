@@ -1,0 +1,6 @@
+---
+- name: Install Alertmanager Cluster
+  hosts: alertmanager_nodes
+  become: yes
+  roles:
+    - alertmanager

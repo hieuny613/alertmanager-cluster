@@ -1,0 +1,7 @@
+version: '0.27.0'
+alertmanager_user: 'alertmanager'
+alertmanager_group: 'alertmanager'
+alertmanager_home: '/etc/alertmanager'
+alertmanager_data: '/var/lib/alertmanager'
+alertmanager_port: 9093
+alertmanager_cluster_port: 9094
